@@ -1,4 +1,4 @@
-public abstract class Spaceship {
+public class Spaceship {
     private String nome;
     private String modelo;
     private String aparicao;

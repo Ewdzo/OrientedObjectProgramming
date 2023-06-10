@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Planet {
+public class Planet {
     private String descricao;
     private String aparicao;
     private ArrayList<String> originarios = new ArrayList<String>();
