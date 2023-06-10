@@ -1,4 +1,6 @@
-public class Spaceship {
+import java.io.Serializable;
+
+public class Spaceship implements Serializable {
     private String nome;
     private String modelo;
     private String aparicao;

@@ -1,6 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Planet {
+
+public class Planet implements Serializable {
     private String descricao;
     private String aparicao;
     private ArrayList<String> originarios = new ArrayList<String>();
