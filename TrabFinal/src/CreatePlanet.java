@@ -12,12 +12,12 @@ import java.awt.Label;
 
 
 public class CreatePlanet extends JFrame {
-    TextField nomeTextField, descricaoTextField, aparicaoTextField, nativoTextField;
-    Label tituloLabel, nomeLabel, descricaoLabel, aparicaoLabel, nativoLabel;
+    TextField nomeTextField, descricaoTextField, aparicaoTextField, nativoTextField, populacaoTextField;
+    Label tituloLabel, nomeLabel, descricaoLabel, aparicaoLabel, nativoLabel, populacaoLabel;
     JButton createPlanetButton, addNativoButton, removeNativoButton, removeNativosButton;
     ArrayList<String> nativos = new ArrayList<String>();
     
-    CreatePlanet(){
+    CreatePlanet(ArrayList<Planet> list){
         CreatePlanet frame = this;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
@@ -59,7 +59,7 @@ public class CreatePlanet extends JFrame {
         this.add(nativoTextField);
 
         addNativoButton = new JButton("Adicionar");
-        addNativoButton.setBounds(30, 350, 100, 30);
+        addNativoButton.setBounds(25, 355, 100, 30);
         addNativoButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 String nativo = nativoTextField.getText();
@@ -74,7 +74,7 @@ public class CreatePlanet extends JFrame {
         this.add(addNativoButton);
 
         removeNativoButton = new JButton("Remover");
-        removeNativoButton.setBounds(130, 350, 100, 30);
+        removeNativoButton.setBounds(135, 355, 100, 30);
         removeNativoButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 String nativo = nativoTextField.getText();
@@ -89,7 +89,7 @@ public class CreatePlanet extends JFrame {
         this.add(removeNativoButton);
 
         removeNativosButton = new JButton("Remover Todos os Nativos");
-        removeNativosButton.setBounds(30, 380, 200, 30);
+        removeNativosButton.setBounds(30, 390, 200, 30);
         removeNativosButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 nativos.clear();
@@ -98,18 +98,31 @@ public class CreatePlanet extends JFrame {
         }); 
         this.add(removeNativosButton);
 
+        populacaoLabel = new Label("Populacao do Planeta");
+        populacaoLabel.setBounds(10, 430, 250, 15);
+        this.add(populacaoLabel);
+
+        populacaoTextField = new TextField();
+        populacaoTextField.setBounds(10, 450, 250, 30);
+        this.add(populacaoTextField);
 
         createPlanetButton = new JButton("Criar Planeta");
-        createPlanetButton.setBounds(60, 425, 150, 30);
+        createPlanetButton.setBounds(60, 500, 150, 30);
         createPlanetButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                System.out.println("Hi");
+                Planet novoPlaneta = new Planet();
+                novoPlaneta.setNome( nomeTextField.getText() );
+                novoPlaneta.setDescricao( descricaoTextField.getText() );
+                novoPlaneta.setAparicao( aparicaoTextField.getText() );
+                novoPlaneta.setNativos(nativos);
+                novoPlaneta.setPopulacao( Integer.parseInt( populacaoTextField.getText() ) );
+
             }
         }); 
         this.add(createPlanetButton);
 
 
-        this.setPreferredSize( new Dimension(300, 500) );
+        this.setPreferredSize( new Dimension(300, 600) );
         this.pack();
 		this.setVisible(true);
     }
