@@ -1,6 +1,9 @@
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,7 +15,7 @@ public class App extends JFrame{
 
     App(){
         App frame = this;
-        JButton createSpaceshipButton, createPlanetButton, showPlanetsButton, showSpaceshipsButton;
+        JButton createSpaceshipButton, createPlanetButton, showPlanetsButton, showSpaceshipsButton, savePlanetsButton, saveSpaceshipsButton;
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
 
@@ -53,6 +56,37 @@ public class App extends JFrame{
             }
         }); 
         this.add(showSpaceshipsButton);
+
+        savePlanetsButton = new JButton("Salvar Planetas");
+        savePlanetsButton.setBounds(15, 255, 250, 50);
+        savePlanetsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if(planets.size() > 0){ 
+                    try{
+                        FileOutputStream fs = new FileOutputStream("Planets.ser");
+                        ObjectOutputStream os = new ObjectOutputStream(fs);
+                        planets.forEach((planet) -> {
+                            try { os.writeObject(planet); }
+                            catch (IOException e1) { e1.printStackTrace(); } 
+                        });
+                        os.close();
+                    } 
+                    catch (IOException e2) { e2.printStackTrace(); }
+                }
+                else JOptionPane.showMessageDialog(frame, "Não existem Planetas Cadastrados");
+            }
+        }); 
+        this.add(savePlanetsButton);
+
+        saveSpaceshipsButton = new JButton("Salvar Naves");
+        saveSpaceshipsButton.setBounds(15, 315, 250, 50);
+        saveSpaceshipsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if(spaceships.size() > 0){ new SpaceshipCard(spaceships, 0); }
+                else JOptionPane.showMessageDialog(frame, "Não existem Naves Cadastradas");
+            }
+        }); 
+        this.add(saveSpaceshipsButton);
 
         this.setPreferredSize( new Dimension(300, 600) );
         this.pack();
