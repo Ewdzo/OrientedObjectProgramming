@@ -2,16 +2,17 @@ import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.Label;
+import java.awt.TextArea;
 
 
 public class CreatePlanet extends JFrame {
-    TextField nomeTextField, descricaoTextField, aparicaoTextField, nativoTextField, populacaoTextField;
+    TextField nomeTextField, aparicaoTextField, nativoTextField, populacaoTextField;
+    TextArea descricaoTextArea;
     Label tituloLabel, nomeLabel, descricaoLabel, aparicaoLabel, nativoLabel, populacaoLabel;
     JButton createPlanetButton, addNativoButton, removeNativoButton, removeNativosButton;
     ArrayList<String> nativos = new ArrayList<String>();
@@ -37,9 +38,9 @@ public class CreatePlanet extends JFrame {
         descricaoLabel.setBounds(10, 100, 250, 15);
         this.add(descricaoLabel);
 
-        descricaoTextField = new TextField();
-        descricaoTextField.setBounds(10, 120, 250, 100);
-        this.add(descricaoTextField);
+        descricaoTextArea = new TextArea();
+        descricaoTextArea.setBounds(10, 120, 250, 100);
+        this.add(descricaoTextArea);
 
         aparicaoLabel = new Label("Primeira Aparição do Planeta");
         aparicaoLabel.setBounds(10, 235, 250, 15);
@@ -110,7 +111,7 @@ public class CreatePlanet extends JFrame {
         createPlanetButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 String nome = nomeTextField.getText();
-                String descricao = descricaoTextField.getText();
+                String descricao = descricaoTextArea.getText();
                 String aparicao = aparicaoTextField.getText();
                 String populacao = populacaoTextField.getText();
 
