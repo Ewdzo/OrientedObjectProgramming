@@ -16,23 +16,23 @@ public class App extends JFrame{
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
 
-        createSpaceshipButton = new JButton("Adicionar Nave");
-        createSpaceshipButton.setBounds(15, 15, 250, 50);
-        createSpaceshipButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                new CreateSpaceship(spaceships);
-            }
-        }); 
-        this.add(createSpaceshipButton);
-
         createPlanetButton = new JButton("Adicionar Planeta");
-        createPlanetButton.setBounds(15, 75, 250, 50);
+        createPlanetButton.setBounds(15, 15, 250, 50);
         createPlanetButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 new CreatePlanet(planets);
             }
         }); 
         this.add(createPlanetButton);
+        
+        createSpaceshipButton = new JButton("Adicionar Nave");
+        createSpaceshipButton.setBounds(15, 75, 250, 50);
+        createSpaceshipButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                new CreateSpaceship(spaceships);
+            }
+        }); 
+        this.add(createSpaceshipButton);
 
         showPlanetsButton = new JButton("Mostrar Planetas");
         showPlanetsButton.setBounds(15, 135, 250, 50);
