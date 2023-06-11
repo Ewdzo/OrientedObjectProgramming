@@ -73,6 +73,7 @@ public class App extends JFrame{
                             catch (IOException e1) { e1.printStackTrace(); } 
                         });
                         os.close();
+                        JOptionPane.showMessageDialog(frame, "Planetas Salvos com Sucesso");
                     } 
                     catch (IOException e2) { e2.printStackTrace(); }
                 }
@@ -94,6 +95,7 @@ public class App extends JFrame{
                             catch (IOException e1) { e1.printStackTrace(); } 
                         });
                         os.close();
+                        JOptionPane.showMessageDialog(frame, "Naves Salvas com Sucesso");
                     } 
                     catch (IOException e2) { e2.printStackTrace(); }
                 }
@@ -118,7 +120,6 @@ public class App extends JFrame{
                         } 
                         catch (EOFException e1){ os.close(); }
                         catch (Exception e2){ e2.printStackTrace(); }
-
                     }
                 
                 }
