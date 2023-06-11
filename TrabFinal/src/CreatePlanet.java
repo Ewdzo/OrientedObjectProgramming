@@ -14,7 +14,7 @@ import java.awt.Label;
 public class CreatePlanet extends JFrame {
     TextField nomeTextField, descricaoTextField, aparicaoTextField, nativoTextField;
     Label tituloLabel, nomeLabel, descricaoLabel, aparicaoLabel, nativoLabel;
-    JButton createPlanetButton, addNativoButton;
+    JButton createPlanetButton, addNativoButton, removeNativoButton, removeNativosButton;
     ArrayList<String> nativos = new ArrayList<String>();
     
     CreatePlanet(){
@@ -69,10 +69,24 @@ public class CreatePlanet extends JFrame {
                     JOptionPane.showMessageDialog(frame, String.format("Adicionado %s aos Nativos do Planeta", nativo));
                 }
                 else JOptionPane.showMessageDialog(frame, "O campo Personagem Nativo não pode estar vazio.");
-
             }
         }); 
         this.add(addNativoButton);
+
+        removeNativoButton = new JButton("Remover");
+        removeNativoButton.setBounds(130, 350, 100, 30);
+        removeNativoButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                String nativo = nativoTextField.getText();
+
+                if(nativo != null && !nativo.trim().isEmpty()){
+                    if(nativos.remove(nativo)){ JOptionPane.showMessageDialog(frame, String.format("Removido %s aos Nativos do Planeta", nativo)); }
+                    else { JOptionPane.showMessageDialog(frame, "O Personagem não foi encontrado."); }
+                }
+                else JOptionPane.showMessageDialog(frame, "O campo Personagem Nativo não pode estar vazio.");
+            }
+        }); 
+        this.add(removeNativoButton);
 
 
         createPlanetButton = new JButton("Criar Planeta");
