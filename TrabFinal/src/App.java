@@ -82,8 +82,19 @@ public class App extends JFrame{
         saveSpaceshipsButton.setBounds(15, 315, 250, 50);
         saveSpaceshipsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                if(spaceships.size() > 0){ new SpaceshipCard(spaceships, 0); }
-                else JOptionPane.showMessageDialog(frame, "Não existem Naves Cadastradas");
+                if(spaceships.size() > 0){ 
+                    try{
+                        FileOutputStream fs = new FileOutputStream("Spaceships.ser");
+                        ObjectOutputStream os = new ObjectOutputStream(fs);
+                        spaceships.forEach((planet) -> {
+                            try { os.writeObject(planet); }
+                            catch (IOException e1) { e1.printStackTrace(); } 
+                        });
+                        os.close();
+                    } 
+                    catch (IOException e2) { e2.printStackTrace(); }
+                }
+                else JOptionPane.showMessageDialog(frame, "Não existem Naves Cadastrados");
             }
         }); 
         this.add(saveSpaceshipsButton);
