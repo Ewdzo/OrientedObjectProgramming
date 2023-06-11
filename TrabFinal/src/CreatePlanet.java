@@ -88,6 +88,16 @@ public class CreatePlanet extends JFrame {
         }); 
         this.add(removeNativoButton);
 
+        removeNativosButton = new JButton("Remover Todos os Nativos");
+        removeNativosButton.setBounds(30, 380, 200, 30);
+        removeNativosButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                nativos.clear();
+                JOptionPane.showMessageDialog(frame, "Todos os Nativos Foram Excluídos.");
+            }
+        }); 
+        this.add(removeNativosButton);
+
 
         createPlanetButton = new JButton("Criar Planeta");
         createPlanetButton.setBounds(60, 425, 150, 30);
