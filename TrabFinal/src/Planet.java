@@ -6,7 +6,7 @@ public class Planet implements Serializable {
     private String nome;
     private String descricao;
     private String aparicao;
-    private ArrayList<String> originarios = new ArrayList<String>();
+    private ArrayList<String> nativos = new ArrayList<String>();
     private int populacao;
 
     public String getNome(){ return this.nome; }
@@ -18,9 +18,9 @@ public class Planet implements Serializable {
     public String getAparicao(){ return this.aparicao; }
     public void setAparicao(String arg){ this.aparicao = arg; }
 
-    public ArrayList<String> getOriginarios(){ return this.originarios; }
-    public void addOriginarios(String arg){ this.originarios.add(arg); }
-    public void removeOriginarios(int index){ this.originarios.remove(index); }
+    public ArrayList<String> getNativos(){ return this.nativos; }
+    public void addNativos(String arg){ this.nativos.add(arg); }
+    public void removeNativos(int index){ this.nativos.remove(index); }
 
     public int getPopulacao(){ return this.populacao; }
     public void setPopulacao(int arg){ this.populacao = arg; }
