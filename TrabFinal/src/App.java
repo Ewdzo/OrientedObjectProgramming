@@ -111,14 +111,18 @@ public class App extends JFrame{
                 try{
                     FileInputStream fs = new FileInputStream("Planets.ser");
                     ObjectInputStream os = new ObjectInputStream(fs);
+                    boolean isFinished = false;
                     
-                    while(true){
+                    while(!isFinished){
                         try {
                             Object restoredObject = os.readObject();
                             Planet restoredPlanet = (Planet) restoredObject;
                             planets.add(restoredPlanet);
                         } 
-                        catch (EOFException e1){ os.close(); }
+                        catch (EOFException e1){
+                            os.close(); 
+                            isFinished = true;
+                        }
                         catch (Exception e2){ e2.printStackTrace(); }
                     }
                 
