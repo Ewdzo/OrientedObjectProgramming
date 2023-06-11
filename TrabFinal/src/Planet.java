@@ -19,8 +19,7 @@ public class Planet implements Serializable {
     public void setAparicao(String arg){ this.aparicao = arg; }
 
     public ArrayList<String> getNativos(){ return this.nativos; }
-    public void addNativos(String arg){ this.nativos.add(arg); }
-    public void removeNativos(int index){ this.nativos.remove(index); }
+    public void setNativos(ArrayList<String> arg){ this.nativos = arg; }
 
     public int getPopulacao(){ return this.populacao; }
     public void setPopulacao(int arg){ this.populacao = arg; }
