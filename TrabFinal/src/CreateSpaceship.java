@@ -17,7 +17,7 @@ public class CreateSpaceship extends JFrame {
     
     CreateSpaceship(ArrayList<Spaceship> list){
         CreateSpaceship frame = this;
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
 
         tituloLabel = new Label("Cadastrar Nova Nave");
