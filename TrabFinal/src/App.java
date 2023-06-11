@@ -4,14 +4,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class App extends JFrame{
     ArrayList<Planet> planets = new ArrayList<Planet>();
     ArrayList<Spaceship> spaceships = new ArrayList<Spaceship>();
 
     App(){
-        JButton createSpaceshipButton, createPlanetButton;
         App frame = this;
+        JButton createSpaceshipButton, createPlanetButton, showPlanetsButton;
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
 
@@ -32,6 +33,16 @@ public class App extends JFrame{
             }
         }); 
         this.add(createPlanetButton);
+
+        showPlanetsButton = new JButton("Mostrar Planetas");
+        showPlanetsButton.setBounds(15, 135, 250, 50);
+        showPlanetsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if(planets.size() > 0){ new PlanetCard(planets, 0); }
+                else JOptionPane.showMessageDialog(frame, "Não existem Planetas Cadastrados");
+            }
+        }); 
+        this.add(showPlanetsButton);
 
         this.setPreferredSize( new Dimension(300, 600) );
         this.pack();
