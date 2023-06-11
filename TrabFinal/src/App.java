@@ -38,7 +38,7 @@ public class App extends JFrame{
         showPlanetsButton.setBounds(15, 135, 250, 50);
         showPlanetsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                if(planets.size() > 0){ new PlanetCard(planets, 0); }
+                if(planets.size() > 0){ new PlanetCard(planets, 0, 0); }
                 else JOptionPane.showMessageDialog(frame, "Não existem Planetas Cadastrados");
             }
         }); 
