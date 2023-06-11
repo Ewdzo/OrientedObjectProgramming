@@ -3,10 +3,14 @@ import java.util.ArrayList;
 
 
 public class Planet implements Serializable {
+    private String nome;
     private String descricao;
     private String aparicao;
     private ArrayList<String> originarios = new ArrayList<String>();
     private int populacao;
+
+    public String getNome(){ return this.nome; }
+    public void setNome(String arg){ this.nome = arg; }
 
     public String getDescricao(){ return this.descricao; } 
     public void setDescricao(String arg){ this.descricao = arg; }
