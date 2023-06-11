@@ -110,13 +110,25 @@ public class CreatePlanet extends JFrame {
         createPlanetButton.setBounds(60, 500, 150, 30);
         createPlanetButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                Planet novoPlaneta = new Planet();
-                novoPlaneta.setNome( nomeTextField.getText() );
-                novoPlaneta.setDescricao( descricaoTextField.getText() );
-                novoPlaneta.setAparicao( aparicaoTextField.getText() );
-                novoPlaneta.setNativos(nativos);
-                novoPlaneta.setPopulacao( Integer.parseInt( populacaoTextField.getText() ) );
+                String nome = nomeTextField.getText();
+                String descricao = descricaoTextField.getText();
+                String aparicao = aparicaoTextField.getText();
+                String populacao = populacaoTextField.getText();
 
+                if(nome.isEmpty() || descricao.isEmpty() || aparicao.isEmpty() || populacao.isEmpty()){
+                    JOptionPane.showMessageDialog(frame, "Existem Campos Vazios");
+                }
+                else {
+                    Planet novoPlaneta = new Planet();
+                    novoPlaneta.setNome(nome);
+                    novoPlaneta.setDescricao(descricao);
+                    novoPlaneta.setAparicao(aparicao);
+                    novoPlaneta.setNativos(nativos);
+                    novoPlaneta.setPopulacao( Integer.parseInt( populacao ) );
+
+                    list.add(novoPlaneta);
+                    JOptionPane.showMessageDialog(frame, String.format("Planeta %s Criado e Adicionado a Lista", nome));
+                }
             }
         }); 
         this.add(createPlanetButton);
