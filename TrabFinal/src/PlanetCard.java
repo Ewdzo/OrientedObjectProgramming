@@ -37,7 +37,7 @@ public class PlanetCard extends JFrame {
         descricaoTextArea.setEditable(false);
         this.add(descricaoTextArea);
 
-        aparicaoLabel = new Label(String.format("Primeira Aparicao do Planeta: %s", aparicao));
+        aparicaoLabel = new Label(String.format("Primeira Aparicao: %s", aparicao));
         aparicaoLabel.setBounds(10, 250, 250, 15);
         this.add(aparicaoLabel);
         

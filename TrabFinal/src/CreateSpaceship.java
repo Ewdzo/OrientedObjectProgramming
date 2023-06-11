@@ -40,7 +40,7 @@ public class CreateSpaceship extends JFrame {
         modeloTextField.setBounds(10, 120, 250, 30);
         this.add(modeloTextField);
 
-        aparicaoLabel = new Label("Primeira Aparição da Nave");
+        aparicaoLabel = new Label("Primeira Aparição");
         aparicaoLabel.setBounds(10, 170, 250, 15);
         this.add(aparicaoLabel);
 

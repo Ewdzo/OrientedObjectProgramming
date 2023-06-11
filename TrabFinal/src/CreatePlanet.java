@@ -42,7 +42,7 @@ public class CreatePlanet extends JFrame {
         descricaoTextArea.setBounds(10, 120, 250, 100);
         this.add(descricaoTextArea);
 
-        aparicaoLabel = new Label("Primeira Aparição do Planeta");
+        aparicaoLabel = new Label("Primeira Aparição");
         aparicaoLabel.setBounds(10, 235, 250, 15);
         this.add(aparicaoLabel);
 

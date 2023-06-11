@@ -12,7 +12,7 @@ public class App extends JFrame{
 
     App(){
         App frame = this;
-        JButton createSpaceshipButton, createPlanetButton, showPlanetsButton;
+        JButton createSpaceshipButton, createPlanetButton, showPlanetsButton, showSpaceshipsButton;
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLayout(null);
 
@@ -43,6 +43,16 @@ public class App extends JFrame{
             }
         }); 
         this.add(showPlanetsButton);
+
+        showSpaceshipsButton = new JButton("Mostrar Naves");
+        showSpaceshipsButton.setBounds(15, 195, 250, 50);
+        showSpaceshipsButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if(spaceships.size() > 0){ new SpaceshipCard(spaceships, 0); }
+                else JOptionPane.showMessageDialog(frame, "Não existem Naves Cadastradas");
+            }
+        }); 
+        this.add(showSpaceshipsButton);
 
         this.setPreferredSize( new Dimension(300, 600) );
         this.pack();
